@@ -1,0 +1,90 @@
+.navbar {
+    /* border: 2px solid black; */
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px 0.5px 10px;
+}
+
+.udemylogo_div {
+    /* border: 2px solid red; */
+    width: 6%;
+    padding: 15px 12px 12px 17px;
+}
+
+.searchbar_div {
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: nowrap;
+    height: 7vh;
+    margin: 10px 0px 10px 20px;
+    box-sizing: border-box;
+    /* margin-top: 5%; */
+    width: 47%;
+    border-radius: 25px;
+}
+
+.searchbar_div input {
+    padding: 1.5%;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    width: 90%;
+    /* padding: 1%; */
+}
+
+.searchbar_div button {
+    background: none;
+    border: none;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.searchbar:focus {
+    outline: none;
+}
+
+.navbar_mainfont {
+    font-weight: 400;
+    font-size: small;
+}
+
+.navbar_cat {
+    /* border: 2px solid black; */
+    padding-top: 0.5%;
+}
+
+.butdiv_nav {
+    /* border: 2px solid black; */
+    width: 15%;
+    display: flex;
+    justify-content: space-between;
+    /* padding: 10px 20px 10px 0px; */
+}
+
+.logbut_nav {
+    border: 1px solid black;
+    height: 5vh;
+    /* width: 55%; */
+    margin: auto;
+    padding: 2px 10px 2px 10px;
+    /* box-sizing: border-box; */
+}
+
+.signupbut {
+    background-color: black;
+    color: white;
+}
+
+.logbut_nav h5 {
+    /* border: 2px solid black; */
+    margin-top: 15%;
+    width: fit-content;
+}
+
+.logbut_nav:hover {
+    background-color: rgb(211, 207, 207, 0.5);
+}
+
+.signupbut:hover {
+    background-color: rgb(0, 0, 0, 0.7);
+}
