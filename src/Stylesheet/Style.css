@@ -332,3 +332,60 @@
     color: white;
     background-color: black;
 }
+
+/* footer */
+.footer {
+    background-color: rgb(27, 26, 26);
+    height: 40vh;
+    position: relative;
+    padding-top: 2%;
+}
+
+.footer_Upperdiv {
+    width: 50%;
+    /* border: 2px solid white; */
+    margin-left: 3%;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+    justify-content: space-between;
+}
+
+.footer_Upperdiv p {
+    /* margin: 0; */
+    font-size: 0.9em;
+    margin-bottom: 0;
+}
+
+.footerbutton {
+    position: absolute;
+    top: 10%;
+    right: 3%;
+    border: 1px solid white;
+    padding: 10px;
+}
+
+.langbut {
+    background-color: inherit;
+    outline: none;
+    /* border: 2px solid white; */
+    color: white;
+    font-size: large;
+    margin-left: 5px;
+    padding-right: 10px;
+}
+
+.footerlogo {
+    display: flex;
+    justify-content: space-between;
+    /* border: 2px solid white; */
+    margin-top: 2%;
+    width: 95%;
+    margin-left: 2%;
+}
+
+.copyrights {
+    color: white;
+    font-size: small;
+}

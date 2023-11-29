@@ -1,6 +1,7 @@
 import React from 'react'
 import ImageCarousel from './ImageCarousel'
 import { MdPlayCircle } from "react-icons/md";
+import Footer from './Footer';
 
 function Home() {
     const images = [
@@ -107,6 +108,7 @@ function Home() {
                     <button>Start teaching today</button>
                 </div>
             </div><br /><br />
+            <Footer />
         </div>
     )
 }
