@@ -12,11 +12,7 @@ function NavbarCompo() {
                 <div className='udemylogo_div'>
                     <img src='https://www.udemy.com/staticx/udemy/images/v7/logo-udemy.svg' alt='not found' />
                 </div>
-                <div onMouseEnter={() => setsubroute({ ...showsubroute, mobiles: true })} onMouseLeave={() => {
-                    if (!showsubroute.subsub) {
-                        setsubroute({ ...showsubroute, mobiles: false });
-                    }
-                }} className='navbar_cat'>
+                <div onMouseEnter={() => setsubroute({ ...showsubroute, mobiles: true })} onMouseLeave={() => { setsubroute({ ...showsubroute, mobiles: false }); }} className='navbar_cat'>
                     <h4 className='navbar_mainfont'>Categories</h4>
                     {showsubroute.mobiles && (
                         <div className='subroute mobile'>
@@ -26,8 +22,8 @@ function NavbarCompo() {
                                     <h4 className='catsymb' >&gt;</h4>
                                 </NavLink>
                                 {showsubroute.subsub && (
-                                    <div className='subsub'>
-                                        <div className='subroute1'>
+                                    <div className='subsub' onMouseEnter={() => setsubroute({ ...showsubroute, subsub: true })} onMouseLeave={() => setsubroute({ ...showsubroute, subsub: false })} >
+                                        <div className='subroute2'>
                                             <NavLink className="subroutenav" to={`/dynamic/`}>
                                                 <h4 className='subroutename submargin'>Development</h4>
                                                 <h4 className='catsymb' >&gt;</h4>

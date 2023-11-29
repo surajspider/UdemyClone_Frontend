@@ -99,17 +99,17 @@
     display: flex;
     z-index: 2;
     color: black;
-    border: 2px solid brown;
+    border: 1px solid black;
     box-sizing: border-box;
     /* border-radius: 10px; */
 }
 
 .subsub {
     background-color: white;
-    border: 2px solid black;
+    border: 1px solid black;
     position: fixed;
     top: 10%;
-    left: 25.1%;
+    left: 25.7%;
 }
 
 .subroutenav {
@@ -121,7 +121,7 @@
 }
 
 .subroutename {
-    border: 2px solid black;
+    /* border: 2px solid black; */
     width: 80%;
     float: left;
     text-align: left;
@@ -133,7 +133,7 @@
 }
 
 .catsymb {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     float: right;
     margin: 3% 0% 3% 3%;
 }
