@@ -90,6 +90,54 @@
     background-color: rgb(0, 0, 0, 0.7);
 }
 
+.subroute {
+    background-color: white;
+    position: fixed;
+    top: 10%;
+    /* width: 15%; */
+    /* width: 20%; */
+    display: flex;
+    z-index: 2;
+    color: black;
+    border: 2px solid brown;
+    box-sizing: border-box;
+    /* border-radius: 10px; */
+}
+
+.subsub {
+    background-color: white;
+    border: 2px solid black;
+    position: fixed;
+    top: 10%;
+    left: 25.1%;
+}
+
+.subroutenav {
+    color: black;
+    text-decoration: none;
+    display: block;
+    width: 250px;
+    /* border: 2px solid red; */
+}
+
+.subroutename {
+    border: 2px solid black;
+    width: 80%;
+    float: left;
+    text-align: left;
+    font-weight: 400;
+}
+
+.submargin {
+    margin: 3%;
+}
+
+.catsymb {
+    border: 2px solid red;
+    float: right;
+    margin: 3% 0% 3% 3%;
+}
+
 /* Image Carousel */
 .image-carousel {
     display: flex;
@@ -246,4 +294,41 @@
     font-size: 1em;
     font-weight: bold;
     color: rgb(22, 22, 210);
+}
+
+/* become instructor div */
+.becomeinstruc_div {
+    width: 88%;
+    /* border: 2px solid black; */
+    margin: auto;
+    position: relative;
+}
+
+.becomeinstruc_imgdiv {
+    width: 30%;
+    /* border: 2px solid black; */
+    margin: 2% 0% 0% 17%;
+}
+
+.becomeinstruc_contentdiv {
+    /* border: 2px solid black; */
+    /* margin-right: 5%; */
+    text-align: left;
+    width: 30%;
+    position: absolute;
+    top: 15%;
+    left: 55%;
+}
+
+.becomeinstruc_contentdiv p {
+    font-size: large;
+    font-weight: 400;
+}
+
+.becomeinstruc_contentdiv button {
+    padding: 4%;
+    font-size: 1em;
+    font-weight: bold;
+    color: white;
+    background-color: black;
 }

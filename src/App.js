@@ -1,8 +1,7 @@
 // import logo from './logo.svg';
 import './App.css';
 import './Stylesheet/Style.css';
-import Home from './Compo/Home';
-import NavbarCompo from './Navbar/NavbarCompo';
+import RouteCompo from './RouterCompo/RouteCompo';
 
 function App() {
   return (
@@ -21,8 +20,7 @@ function App() {
           Learn React
         </a>
       </header> */}
-      <NavbarCompo />
-      <Home />
+      <RouteCompo />
     </div>
   );
 }

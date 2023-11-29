@@ -1,17 +1,76 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { IoIosSearch } from "react-icons/io";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { MdLanguage } from "react-icons/md";
+import { NavLink } from 'react-router-dom';
 
 function NavbarCompo() {
+    const [showsubroute, setsubroute] = useState({ mobiles: false, subsub: false });
     return (
         <div>
             <div className='navbar'>
                 <div className='udemylogo_div'>
                     <img src='https://www.udemy.com/staticx/udemy/images/v7/logo-udemy.svg' alt='not found' />
                 </div>
-                <div className='navbar_cat'>
+                <div onMouseEnter={() => setsubroute({ ...showsubroute, mobiles: true })} onMouseLeave={() => {
+                    if (!showsubroute.subsub) {
+                        setsubroute({ ...showsubroute, mobiles: false });
+                    }
+                }} className='navbar_cat'>
                     <h4 className='navbar_mainfont'>Categories</h4>
+                    {showsubroute.mobiles && (
+                        <div className='subroute mobile'>
+                            <div className='subroute1'>
+                                <NavLink className="subroutenav" to={`/dynamic/`} onMouseEnter={() => setsubroute({ ...showsubroute, subsub: true })} onMouseLeave={() => setsubroute({ ...showsubroute, subsub: false })}>
+                                    <h4 className='subroutename submargin'>Development</h4>
+                                    <h4 className='catsymb' >&gt;</h4>
+                                </NavLink>
+                                {showsubroute.subsub && (
+                                    <div className='subsub'>
+                                        <div className='subroute1'>
+                                            <NavLink className="subroutenav" to={`/dynamic/`}>
+                                                <h4 className='subroutename submargin'>Development</h4>
+                                                <h4 className='catsymb' >&gt;</h4>
+                                            </NavLink>
+                                            <NavLink className="subroutenav" to={`/dynamic/`}>
+                                                <h4 className='subroutename submargin'>Development</h4>
+                                                <h4 className='catsymb' >&gt;</h4>
+                                            </NavLink>
+                                        </div>
+                                    </div>
+
+                                )}
+                                <NavLink className="subroutenav" to={`/dynamic/`}>
+                                    <h4 className='subroutename submargin'>Business</h4>
+                                    <h4 className='catsymb'>&gt;</h4>
+                                </NavLink>
+                                <NavLink className="subroutenav" to={`/dynamic/`}>
+                                    <h4 className='subroutename submargin'>Finance & Accounting</h4>
+                                    <h4 className='catsymb'>&gt;</h4>
+                                </NavLink>
+                                <NavLink className="subroutenav" to={`/dynamic/`}>
+                                    <h4 className='subroutename submargin'>IT & Software</h4>
+                                    <h4 className='catsymb' >&gt;</h4>
+                                </NavLink>
+                                <NavLink className="subroutenav" to={`/dynamic/`}>
+                                    <h4 className='subroutename submargin'>Office Productivity</h4>
+                                    <h4 className='catsymb'>&gt;</h4>
+                                </NavLink>
+                                <NavLink className="subroutenav" to={`/dynamic/`}>
+                                    <h4 className='subroutename submargin'>Personal Development</h4>
+                                    <h4 className='catsymb'>&gt;</h4>
+                                </NavLink>
+                                <NavLink className="subroutenav" to={`/dynamic/`}>
+                                    <h4 className='subroutename submargin'>Design</h4>
+                                    <h4 className='catsymb'>&gt;</h4>
+                                </NavLink>
+                                <NavLink className="subroutenav" to={`/dynamic/`}>
+                                    <h4 className='subroutename submargin'>Marketing</h4>
+                                    <h4 className='catsymb'>&gt;</h4>
+                                </NavLink>
+                            </div>
+                        </div>
+                    )}
                 </div>
                 <div className='searchbar_div'>
                     <button><IoIosSearch size={"1.5em"} /></button>

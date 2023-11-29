@@ -96,8 +96,17 @@ function Home() {
                         </div>
                     </div>
                 </div>
-            </div>
-            <h1>This is Home!</h1>
+            </div><br /><br />
+            <div className='becomeinstruc_div'>
+                <div className='becomeinstruc_imgdiv'>
+                    <img className='imgfil' src='https://s.udemycdn.com/home/non-student-cta/instructor-1x-v3.jpg' alt='not found' />
+                </div>
+                <div className='becomeinstruc_contentdiv'>
+                    <h1>Become an instructor</h1>
+                    <p>Instructors from around the world teach millions of learners on Udemy. We provide the tools and skills to teach what you love.</p>
+                    <button>Start teaching today</button>
+                </div>
+            </div><br /><br />
         </div>
     )
 }
