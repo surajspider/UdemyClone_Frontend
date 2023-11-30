@@ -86,7 +86,9 @@ function NavbarCompo() {
                         <h5>Log in</h5>
                     </div>
                     <div className='logbut_nav signupbut'>
-                        <h5>Sign up</h5>
+                        <NavLink style={{ color: "white", textDecoration: "none" }} to="/register">
+                            <h5>Sign up</h5>
+                        </NavLink>
                     </div>
                     <div className='logbut_nav'>
                         <MdLanguage size={"1.5em"} style={{ margin: "5px 0px 0px 0px" }} />
