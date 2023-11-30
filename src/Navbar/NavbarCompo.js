@@ -7,6 +7,9 @@ import { NavLink } from 'react-router-dom';
 function NavbarCompo() {
     const [showsubroute, setsubroute] = useState({ mobiles: false, subsub: false });
     const [loginout, setloginout] = useState(false);
+    const categoryname = ["development", "business"];
+    const devcatname = ["web development", "data science", "mobile development", "programming language"];
+    const buscatname = ["entrepreneurship", "communication", "management", "sales"];
     return (
         <div>
             <div className='navbar'>
@@ -20,7 +23,7 @@ function NavbarCompo() {
                     {showsubroute.mobiles && (
                         <div className='subroute mobile'>
                             <div className='subroute1'>
-                                <NavLink className="subroutenav" to={`/dynamic/`} onMouseEnter={() => setsubroute({ ...showsubroute, subsub: true })} onMouseLeave={() => setsubroute({ ...showsubroute, subsub: false })}>
+                                <NavLink className="subroutenav" to={`/category/${categoryname[0]}`} onMouseEnter={() => setsubroute({ ...showsubroute, subsub: true })} onMouseLeave={() => setsubroute({ ...showsubroute, subsub: false })}>
                                     <h4 className='subroutename submargin'>Development</h4>
                                     <h4 className='catsymb' >&gt;</h4>
                                 </NavLink>
@@ -39,7 +42,7 @@ function NavbarCompo() {
                                     </div>
 
                                 )}
-                                <NavLink className="subroutenav" to={`/dynamic/`}>
+                                <NavLink className="subroutenav" to={`/category/${categoryname[1]}`}>
                                     <h4 className='subroutename submargin'>Business</h4>
                                     <h4 className='catsymb'>&gt;</h4>
                                 </NavLink>
