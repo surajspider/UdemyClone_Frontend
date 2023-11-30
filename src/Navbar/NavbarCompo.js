@@ -6,6 +6,7 @@ import { NavLink } from 'react-router-dom';
 
 function NavbarCompo() {
     const [showsubroute, setsubroute] = useState({ mobiles: false, subsub: false });
+    const [loginout, setloginout] = useState(false);
     return (
         <div>
             <div className='navbar'>
