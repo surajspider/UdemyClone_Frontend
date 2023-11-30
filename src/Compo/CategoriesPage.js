@@ -7,15 +7,11 @@ function CategoriesPage() {
     console.log(datas);
     const name = useParams().name;
     console.log(name);
-    const filtereddatas = datas.filter(item => {
-        if (item.category === name) {
-            return true;
-        }
-    });
+    const filtereddatas = datas.filter(item => item.category === name);
     console.log(filtereddatas);
     return (
         <div>
-            <h1>Hello</h1>
+            <h1 className='topic_categoryPage'>{name} Courses</h1>
         </div>
     )
 }

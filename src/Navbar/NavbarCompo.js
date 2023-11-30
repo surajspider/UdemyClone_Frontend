@@ -6,10 +6,10 @@ import { NavLink } from 'react-router-dom';
 
 function NavbarCompo() {
     const [showsubroute, setsubroute] = useState({ mobiles: false, subsub: false });
-    const [loginout, setloginout] = useState(false);
+    // const [loginout, setloginout] = useState(false);
     const categoryname = ["development", "business"];
     const devcatname = ["web development", "data science", "mobile development", "programming language"];
-    const buscatname = ["entrepreneurship", "communication", "management", "sales"];
+    // const buscatname = ["entrepreneurship", "communication", "management", "sales"];
     return (
         <div>
             <div className='navbar'>
@@ -30,12 +30,12 @@ function NavbarCompo() {
                                 {showsubroute.subsub && (
                                     <div className='subsub' onMouseEnter={() => setsubroute({ ...showsubroute, subsub: true })} onMouseLeave={() => setsubroute({ ...showsubroute, subsub: false })} >
                                         <div className='subroute2'>
-                                            <NavLink className="subroutenav" to={`/dynamic/`}>
-                                                <h4 className='subroutename submargin'>Development</h4>
+                                            <NavLink className="subroutenav" to={`/category/${categoryname[0]}/${devcatname[0]}`}>
+                                                <h4 className='subroutename submargin'>Web Development</h4>
                                                 <h4 className='catsymb' >&gt;</h4>
                                             </NavLink>
-                                            <NavLink className="subroutenav" to={`/dynamic/`}>
-                                                <h4 className='subroutename submargin'>Development</h4>
+                                            <NavLink className="subroutenav" to={`/category/${categoryname[0]}/${devcatname[1]}`}>
+                                                <h4 className='subroutename submargin'>Data Science</h4>
                                                 <h4 className='catsymb' >&gt;</h4>
                                             </NavLink>
                                         </div>

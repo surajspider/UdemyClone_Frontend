@@ -503,3 +503,8 @@
     text-decoration: underline;
     margin-top: 1%;
 }
+
+/* Category Page */
+.topic_categoryPage {
+    text-transform: capitalize;
+}
