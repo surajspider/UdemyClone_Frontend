@@ -10,7 +10,9 @@ function NavbarCompo() {
         <div>
             <div className='navbar'>
                 <div className='udemylogo_div'>
-                    <img src='https://www.udemy.com/staticx/udemy/images/v7/logo-udemy.svg' alt='not found' />
+                    <NavLink to="/">
+                        <img src='https://www.udemy.com/staticx/udemy/images/v7/logo-udemy.svg' alt='not found' />
+                    </NavLink>
                 </div>
                 <div onMouseEnter={() => setsubroute({ ...showsubroute, mobiles: true })} onMouseLeave={() => { setsubroute({ ...showsubroute, mobiles: false }); }} className='navbar_cat'>
                     <h4 className='navbar_mainfont'>Categories</h4>
@@ -83,7 +85,9 @@ function NavbarCompo() {
                 </div>
                 <div className='butdiv_nav'>
                     <div className='logbut_nav'>
-                        <h5>Log in</h5>
+                        <NavLink style={{ color: "black", textDecoration: "none" }} to="/login">
+                            <h5>Log in</h5>
+                        </NavLink>
                     </div>
                     <div className='logbut_nav signupbut'>
                         <NavLink style={{ color: "white", textDecoration: "none" }} to="/register">
