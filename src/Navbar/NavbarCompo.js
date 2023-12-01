@@ -18,7 +18,7 @@ function NavbarCompo() {
                         <img src='https://www.udemy.com/staticx/udemy/images/v7/logo-udemy.svg' alt='not found' />
                     </NavLink>
                 </div>
-                <div onMouseEnter={() => setsubroute({ ...showsubroute, mobiles: true })} onMouseLeave={() => { setsubroute({ ...showsubroute, mobiles: false }); }} className='navbar_cat'>
+                <div onMouseEnter={() => setTimeout(() => { setsubroute({ ...showsubroute, mobiles: true }) }, 500)} onMouseLeave={() => { setsubroute({ ...showsubroute, mobiles: false }); }} className='navbar_cat'>
                     <h4 className='navbar_mainfont'>Categories</h4>
                     {showsubroute.mobiles && (
                         <div className='subroute mobile'>
@@ -103,7 +103,7 @@ function NavbarCompo() {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 
