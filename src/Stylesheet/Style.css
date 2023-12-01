@@ -722,9 +722,9 @@
     border-color: transparent whitesmoke transparent transparent;
 }
 
-.additional-content {
-    /* margin-top: 10px; */
-}
+/* .additional-content {
+     margin-top: 10px; 
+} */
 
 .container:hover {
     background-color: #f0f0f0;
