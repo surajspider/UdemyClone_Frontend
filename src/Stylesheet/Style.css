@@ -650,8 +650,47 @@
 
 .leftcontainer {
     width: 30%;
-    border: 2px solid red;
-    height: 80vh;
+    /* border: 2px solid red; */
+    height: fit-content;
+    padding: 0px 20px 0px 0px;
+}
+
+.ratingdropdown {
+    display: flex;
+    justify-content: space-between;
+}
+
+.stars_div input[type='radio'] {
+    width: 15px;
+    height: 15px;
+    accent-color: black;
+}
+
+.stars_div input[type='checkbox'] {
+    width: 15px;
+    height: 15px;
+    accent-color: black;
+}
+
+.rotate {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+}
+
+.rotateflip {
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+}
+
+.droplogo_div {
+    /* border: 2px solid black; */
+    height: 5vh;
+    margin-top: 5%;
+}
+
+.stars_div {
+    display: flex;
+    margin-bottom: 3%;
 }
 
 .rightcontainer {
