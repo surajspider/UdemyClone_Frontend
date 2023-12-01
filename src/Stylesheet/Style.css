@@ -556,14 +556,18 @@
 .mostpop_div {
     display: flex;
     flex-wrap: wrap;
-    border: 2px solid red;
+    /* border: 2px solid red; */
 }
 
 .mostitem_div {
-    border: 2px solid black;
+    /* border: 2px solid black; */
     margin-right: 1%;
-    height: 40vh;
+    height: 45vh;
     width: 18.4%;
+}
+
+.topicitem {
+    margin: 2%;
 }
 
 .topicfont {
@@ -575,6 +579,17 @@
     font-size: small;
     font-weight: 500;
     color: #ccc;
+}
+
+.rating_div {
+    display: flex;
+    margin: 1%;
+}
+
+.bestsel {
+    padding: 2%;
+    background-color: rgb(225, 225, 59);
+    width: fit-content;
 }
 
 /* arrow */

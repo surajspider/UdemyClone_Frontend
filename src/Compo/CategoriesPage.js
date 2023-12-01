@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { storeData } from '../DataStore/DataStore'
 import { useParams } from 'react-router-dom';
+import RatingStars from './RatingStars';
 
 function CategoriesPage() {
     const [datas] = useContext(storeData);
@@ -41,6 +42,7 @@ function CategoriesPage() {
                 </div>
                 <div className='mostpop_div'>
                     {filtereddatas.filter((item) => item.id % 2 === 0).slice(0, 5).map((item, index) => {
+                        const bestsel = index === 1 || index === 3;
                         return (
                             <div className='mostitem_div' key={index}>
                                 <div className='mostpop_img'>
@@ -49,8 +51,9 @@ function CategoriesPage() {
                                 <div className='topicitem'>
                                     <h5 className='topicfont'>{item.courseName}</h5>
                                     <p className='pmargin'>{item.creator}</p>
-                                    <span>{item.rating} (3256)</span>
-                                    <h5>{item.offerPrice}</h5>
+                                    <div className='rating_div'>{item.rating}<div><RatingStars rating={item.rating} /></div>(3256)</div>
+                                    <h4 style={{ marginTop: "1%" }}>₹{item.offerPrice}</h4>
+                                    {bestsel && <h4 className='bestsel'>Bestseller</h4>}
                                 </div>
                             </div>
                         )
