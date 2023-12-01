@@ -556,6 +556,7 @@
 .mostpop_div {
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 3%;
     /* border: 2px solid red; */
 }
 
@@ -590,6 +591,23 @@
     padding: 2%;
     background-color: rgb(225, 225, 59);
     width: fit-content;
+}
+
+.popmain_div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* border: 2px solid black; */
+    margin-bottom: 3%;
+}
+
+.poptopics {
+    border: 1px solid black;
+    padding: 1.5%;
+    width: 15%;
+    text-align: center;
+    font-size: 0.9em;
+    font-weight: bold;
 }
 
 /* arrow */

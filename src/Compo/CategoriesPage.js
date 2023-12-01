@@ -8,6 +8,7 @@ function CategoriesPage() {
     console.log(datas);
     const devcatname = ["web development", "data science", "mobile development", "programming language"];
     const buscatname = ["entrepreneurship", "communication", "management", "sales"];
+    const poptopics = ["Python", "Data Science", "React JS", "Java", "c#(Programming Language)", "Web Development", "Javascript", "Unreal Engine", "Machine Learning", "Deep Learning"]
     const name = useParams().name;
     console.log(name);
     let subcats = [];
@@ -58,6 +59,19 @@ function CategoriesPage() {
                             </div>
                         )
                     })}
+                </div>
+                <div className='poptopics_div'>
+                    <h2>Popular topics</h2>
+                    <div className='popmain_div'>
+                        {poptopics.map((item, index) => {
+                            return (
+                                <p className='poptopics'>{item}</p>
+                            )
+                        })}
+                    </div>
+                </div>
+                <div className='popinstruc_div'>
+                    <h2>Popular Instructors</h2>
                 </div>
             </div>
         </div>
