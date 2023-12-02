@@ -58,7 +58,24 @@ function CategoriesPage() {
         subcats = buscatname;
     }
     console.log(subcats);
-    const filtereddatas = datas.filter(item => item.category === name);
+    let subcat = "";
+    let dummycat = datas.find((item) => {
+        if (item.category === name) {
+            subcat = item.category;
+            return item
+        }
+        else if (item.subcategory === name) {
+            subcat = item.category;
+            return item
+        }
+        else {
+            subcat = undefined;
+            return false;
+        }
+    });
+    console.log("dummycat:", dummycat);
+    console.log("category name:", subcat);
+    const filtereddatas = datas.filter(item => item.category === name || item.subcategory === name);
     console.log(filtereddatas);
     const [isHovered, setIsHovered] = useState(null);
 
@@ -90,7 +107,7 @@ function CategoriesPage() {
                     <hr className='linehr'></hr>
                 </div>
                 <div className='mostpop_div'>
-                    {filtereddatas.filter((item) => item.id % 2 === 0).slice(0, 5).map((item, index) => {
+                    {datas.filter((item) => item.category === subcat && item.id % 2 === 0).slice(0, 5).map((item, index) => {
                         const bestsel = index === 1 || index === 3;
                         return (
                             <div className={`mostitem_div ${isHovered === index ? 'hovered' : ''}`} key={index} onMouseEnter={() => handleContainerHover(index)} onMouseLeave={handleContainerLeave}>
