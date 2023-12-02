@@ -123,6 +123,10 @@
     /* border: 2px solid red; */
 }
 
+.subroutenav:hover {
+    color: blueviolet;
+}
+
 .subroutename {
     /* border: 2px solid black; */
     width: 100%;
