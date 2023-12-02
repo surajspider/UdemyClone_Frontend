@@ -260,16 +260,6 @@ function CategoriesPage() {
                                 <div className={`droplogo_div`}><IoMdArrowDropdown size={"2em"} /></div>
                             </div>
                             <hr />
-                            <div className="ratingdropdown">
-                                <h3>Features</h3>
-                                <div className={`droplogo_div`}><IoMdArrowDropdown size={"2em"} /></div>
-                            </div>
-                            <hr />
-                            <div className="ratingdropdown">
-                                <h3>Subtitles</h3>
-                                <div className={`droplogo_div`}><IoMdArrowDropdown size={"2em"} /></div>
-                            </div>
-                            <hr />
                         </div>
                         <div className='rightcontainer'>
 

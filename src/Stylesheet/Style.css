@@ -652,7 +652,7 @@
 }
 
 .leftcontainer {
-    width: 30%;
+    width: 25%;
     /* border: 2px solid red; */
     height: fit-content;
     padding: 0px 20px 0px 0px;
@@ -698,7 +698,7 @@
 }
 
 .rightcontainer {
-    width: 70%;
+    width: 75%;
     /* border: 2px solid green; */
 }
 

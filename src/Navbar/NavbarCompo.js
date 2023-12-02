@@ -15,7 +15,7 @@ function NavbarCompo() {
         setsubsub(false);
     }
     // const [loginout, setloginout] = useState(false);
-    const categoryname = ["development", "business", "Finance & Accounting", "IT & Software", "Office Productivity", "Personal Development", "Teaching & Academics", "Music", "Health & Fitness", "Photography & Video", "Lifestyle", "Marketing", "Design", ""];
+    const categoryname = ["development", "business", "Finance & Accounting", "IT & Software", "Office Productivity", "Personal Development", "Teaching & Academics", "Music", "Health & Fitness", "Photography & Video", "Lifestyle", "Marketing", "Design"];
     const devcatname = ["web development", "data science", "mobile development", "programming language", "entrepreneurship", "communication", "management", "sales",
         "Accounting & Bookkeeping", "Compliance", "Cryptocurrency & Blockchain", "Economics", "Finance", "IT Certifications", "Network & Security", "Hardware", "Operating Systems & Servers",
         "Other IT & Software", "Microsoft", "Apple", "Google", "SAP", "Oracle", "Personal Transformation", "Personal Productivity", "Leadership", "Career Development", "Parenting & Relationships",
@@ -48,7 +48,7 @@ function NavbarCompo() {
                                                 <h4 className='subroutename submargin'>Web Development</h4>
                                                 {/* <h4 className='catsymb' >&gt;</h4> */}
                                             </NavLink>
-                                            <NavLink className="subroutenav" to={`/category/${categoryname[0]}/${devcatname[1]}`}>
+                                            <NavLink className="subroutenav" to={`/category/${devcatname[1]}`}>
                                                 <h4 className='subroutename submargin'>Data Science</h4>
                                                 {/* <h4 className='catsymb' >&gt;</h4> */}
                                             </NavLink>
@@ -60,7 +60,7 @@ function NavbarCompo() {
                                     <h4 className='subroutename submargin'>Business</h4>
                                     {/* <h4 className='catsymb'>&gt;</h4> */}
                                 </NavLink>
-                                <NavLink className="subroutenav" to={`/dynamic/`} onMouseEnter={() => handlesubsub(categoryname[2])} onMouseLeave={handlesubsubleave}>
+                                <NavLink className="subroutenav" to={`/category/${categoryname[2]}`} onMouseEnter={() => handlesubsub(categoryname[2])} onMouseLeave={handlesubsubleave}>
                                     <h4 className='subroutename submargin'>Finance & Accounting</h4>
                                     {/* <h4 className='catsymb'>&gt;</h4> */}
                                 </NavLink>
@@ -79,24 +79,44 @@ function NavbarCompo() {
                                     </div>
 
                                 )}
-                                <NavLink className="subroutenav" to={`/dynamic/`}>
+                                <NavLink className="subroutenav" to={`/category/${categoryname[3]}`}>
                                     <h4 className='subroutename submargin'>IT & Software</h4>
                                     {/* <h4 className='catsymb' >&gt;</h4> */}
                                 </NavLink>
-                                <NavLink className="subroutenav" to={`/dynamic/`}>
+                                <NavLink className="subroutenav" to={`/category/${categoryname[4]}`}>
                                     <h4 className='subroutename submargin'>Office Productivity</h4>
                                     {/* <h4 className='catsymb'>&gt;</h4> */}
                                 </NavLink>
-                                <NavLink className="subroutenav" to={`/dynamic/`}>
+                                <NavLink className="subroutenav" to={`/category/${categoryname[5]}`}>
                                     <h4 className='subroutename submargin'>Personal Development</h4>
                                     {/* <h4 className='catsymb'>&gt;</h4> */}
                                 </NavLink>
-                                <NavLink className="subroutenav" to={`/dynamic/`}>
-                                    <h4 className='subroutename submargin'>Design</h4>
+                                <NavLink className="subroutenav" to={`/category/${categoryname[6]}`}>
+                                    <h4 className='subroutename submargin'>Teaching & Academics</h4>
                                     {/* <h4 className='catsymb'>&gt;</h4> */}
                                 </NavLink>
-                                <NavLink className="subroutenav" to={`/dynamic/`}>
+                                <NavLink className="subroutenav" to={`/category/${categoryname[7]}`}>
+                                    <h4 className='subroutename submargin'>Music</h4>
+                                    {/* <h4 className='catsymb'>&gt;</h4> */}
+                                </NavLink>
+                                <NavLink className="subroutenav" to={`/category/${categoryname[8]}`}>
+                                    <h4 className='subroutename submargin'>Health & Fitness</h4>
+                                    {/* <h4 className='catsymb'>&gt;</h4> */}
+                                </NavLink>
+                                <NavLink className="subroutenav" to={`/category/${categoryname[9]}`}>
+                                    <h4 className='subroutename submargin'>Photography & Video</h4>
+                                    {/* <h4 className='catsymb'>&gt;</h4> */}
+                                </NavLink>
+                                <NavLink className="subroutenav" to={`/category/${categoryname[10]}`}>
+                                    <h4 className='subroutename submargin'>Lifestyle</h4>
+                                    {/* <h4 className='catsymb'>&gt;</h4> */}
+                                </NavLink>
+                                <NavLink className="subroutenav" to={`/category/${categoryname[11]}`}>
                                     <h4 className='subroutename submargin'>Marketing</h4>
+                                    {/* <h4 className='catsymb'>&gt;</h4> */}
+                                </NavLink>
+                                <NavLink className="subroutenav" to={`/category/${categoryname[12]}`}>
+                                    <h4 className='subroutename submargin'>Design</h4>
                                     {/* <h4 className='catsymb'>&gt;</h4> */}
                                 </NavLink>
                             </div>
