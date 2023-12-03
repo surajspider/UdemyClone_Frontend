@@ -7,6 +7,7 @@ import Login from '../Compo/Register/Login'
 import DataStore from '../DataStore/DataStore'
 import CategoriesPage from '../Compo/CategoriesPage'
 import CartPage from '../Cart/CartPage'
+import SearchPage from '../Compo/SearchPage'
 
 function RouteCompo() {
     return (
@@ -19,6 +20,7 @@ function RouteCompo() {
                     <Route path="/login" element={<Login />}></Route>
                     <Route path="/category/:name" element={<CategoriesPage />}></Route>
                     <Route path='/cart' element={<CartPage />}></Route>
+                    <Route path='/search' element={<SearchPage />}></Route>
                 </Routes>
             </DataStore>
         </div>

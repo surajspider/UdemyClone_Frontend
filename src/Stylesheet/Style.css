@@ -905,3 +905,11 @@
     font-weight: 700;
     border: none;
 }
+
+/* search page */
+.search_maindiv {
+    /* border: 2px solid green; */
+    width: 85%;
+    margin: auto;
+    text-align: left;
+}

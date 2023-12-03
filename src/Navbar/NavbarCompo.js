@@ -1,18 +1,45 @@
+import axios from 'axios';
 import React, { useState } from 'react'
 import { IoIosSearch } from "react-icons/io";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { MdLanguage } from "react-icons/md";
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 function NavbarCompo() {
     const [showsubroute, setsubroute] = useState(false);
     const [showsubsub, setsubsub] = useState(null);
+    const [searchText, setSearchText] = useState("");
+    const navi = useNavigate();
     const handlesubsub = (catname) => {
         setsubroute(true);
         setsubsub(catname);
     }
     const handlesubsubleave = () => {
         setsubsub(false);
+    }
+    const handleInput = (e) => {
+        const value = e.target.value;
+        setSearchText(value);
+    };
+    const handleSearch = async () => {
+        try {
+            const response = await axios.get(`http://localhost:4500/data/search?searchText=${searchText}`);
+            const searchResult = response.data;
+            console.log(response.data);
+            console.log(searchResult.length);
+            if (searchResult.length === 0) {
+                alert("Results not found!");
+                setSearchText("");
+                navi("/");
+            }
+            else {
+                navi("/search", { state: { searchResult, searchText } });
+                setSearchText("");
+            }
+        }
+        catch (err) {
+            console.log("Error searching:", err);
+        }
     }
     // const [loginout, setloginout] = useState(false);
     const categoryname = ["development", "business", "Finance & Accounting", "IT & Software", "Office Productivity", "Personal Development", "Teaching & Academics", "Music", "Health & Fitness", "Photography & Video", "Lifestyle", "Marketing", "Design"];
@@ -437,8 +464,8 @@ function NavbarCompo() {
                     )}
                 </div>
                 <div className='searchbar_div'>
-                    <button><IoIosSearch size={"1.5em"} /></button>
-                    <input className='searchbar' type='text' placeholder='Search for anything'></input>
+                    <button><IoIosSearch size={"1.5em"} onClick={handleSearch} /></button>
+                    <input className='searchbar' type='text' placeholder='Search for anything' value={searchText} onChange={handleInput}></input>
                 </div>
                 <div className='navbar_cat'>
                     <h4 className='navbar_mainfont'>Udemy Business</h4>
