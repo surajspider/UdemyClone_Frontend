@@ -447,7 +447,9 @@ function NavbarCompo() {
                     <h4 className='navbar_mainfont'>Teach on Udemy</h4>
                 </div>
                 <div className='navbar_cat'>
-                    <MdOutlineShoppingCart size={"1.5em"} style={{ margin: "15px 0px 0px 0px" }} />
+                    <NavLink to={"/cart"}>
+                        <MdOutlineShoppingCart size={"1.5em"} style={{ margin: "15px 0px 0px 0px" }} />
+                    </NavLink>
                 </div>
                 <div className='butdiv_nav'>
                     <div className='logbut_nav'>

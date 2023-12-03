@@ -5,6 +5,7 @@ import RatingStars from './RatingStars';
 import { FaStar } from 'react-icons/fa';
 import { IoMdArrowDropdown } from "react-icons/io";
 import Footer from './Footer';
+import CartButton from '../Cart/CartButton';
 
 function CategoriesPage() {
     const [starview, setstarview] = useState(true);
@@ -134,7 +135,7 @@ function CategoriesPage() {
                                                 <li>{item.point3}</li>
                                             </ul>
                                             <div className='buttondiv'>
-                                                <button className='addtocart'>Add to Cart</button>
+                                                <CartButton item={item} />
                                                 <div className='heartbutton_img'>
                                                     <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf9nKX4mmWawwlgehpJGHNxT5OcxKVlRsIzA&usqp=CAU' alt='not found' className='imgfil' />
                                                 </div>

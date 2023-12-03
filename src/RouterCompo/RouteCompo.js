@@ -6,7 +6,7 @@ import Register from '../Compo/Register/Register'
 import Login from '../Compo/Register/Login'
 import DataStore from '../DataStore/DataStore'
 import CategoriesPage from '../Compo/CategoriesPage'
-import SubcategoryPage from '../Compo/SubcategoryPage'
+import CartPage from '../Cart/CartPage'
 
 function RouteCompo() {
     return (
@@ -14,12 +14,11 @@ function RouteCompo() {
             <DataStore>
                 <NavbarCompo />
                 <Routes>
-
                     <Route path="/" element={<Home />}></Route>
                     <Route path='/register' element={<Register />}></Route>
                     <Route path="/login" element={<Login />}></Route>
                     <Route path="/category/:name" element={<CategoriesPage />}></Route>
-                    <Route path='/category/:name/:subname' element={<SubcategoryPage />}></Route>
+                    <Route path='/cart' element={<CartPage />}></Route>
                 </Routes>
             </DataStore>
         </div>
