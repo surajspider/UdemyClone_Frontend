@@ -1,17 +1,19 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Footer from '../Compo/Footer';
 import { useDispatch, useSelector } from 'react-redux';
 import RatingStars from '../Compo/RatingStars';
 import { deleteItem } from './Redux/CartSlice';
 import PaypalPayment from '../PaymentGateway/PaypalPayment';
+import axios from 'axios';
 
 function CartPage() {
     const [toggle, setToggle] = useState(false);
     const navi = useNavigate();
+    const token = localStorage.getItem("token");
     const dispatch = useDispatch();
     const itemsInCart = useSelector((state) => state.cart.itemsInCart);
-    const totalcost = useSelector((state) => state.cart.totalAmount);
+    const totalAmt = useSelector((state) => state.cart.totalAmount);
     const navigate = () => {
         navi("/");
     }
@@ -22,6 +24,19 @@ function CartPage() {
         alert("Proceed to Payment!");
         setToggle(!toggle);
     }
+    useEffect(() => {
+        if (token) {
+            axios.get("http://localhost:4500/api/auth", { headers: { "authorization": `Bearer ${token}` } })
+                .then((res) => {
+                    console.log(res.data);
+                })
+                .catch(err => console.log(err))
+        }
+        else {
+            alert("Please login to view cart page!");
+            navi("/login");
+        }
+    }, [token, navi])
     return (
         <div>
             <div className='cartmain_div'>
@@ -60,9 +75,9 @@ function CartPage() {
                             </div>
                             <div className='totaldiv'>
                                 <h3>Total:</h3>
-                                <h1>₹{totalcost}</h1>
+                                <h1>₹{totalAmt}</h1>
                                 {!toggle ? <button onClick={buynow} className='checkout_but'>Checkout</button> : ""}
-                                {toggle ? <PaypalPayment cartData={itemsInCart} totalAmount={totalcost} /> : ""}
+                                {toggle ? <PaypalPayment cartData={itemsInCart} totalAmount={totalAmt} /> : ""}
                                 <hr />
                                 <h4>Promotions</h4>
                                 <input type='text' className='coupontext' placeholder='Enter Coupon' />

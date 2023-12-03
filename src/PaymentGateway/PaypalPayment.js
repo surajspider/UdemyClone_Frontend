@@ -10,7 +10,7 @@ function PaypalPayment({ cartData, totalAmount }) {
     const dispatch = useDispatch();
     const createOrder = () => {
         // Order is created on the server and the order id is returned   https://ecommerce-ns6o.onrender.com/payment/create-paypal-order http://localhost:4500/payment/create-paypal-order
-        return fetch("https://ecommerce-ns6o.onrender.com/payment/create-paypal-order", {
+        return fetch("http://localhost:4500/payment/create-paypal-order", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -37,7 +37,7 @@ function PaypalPayment({ cartData, totalAmount }) {
     };
     const onApprove = (data) => {
         // Order is captured on the server and the response is returned to the browser https://ecommerce-ns6o.onrender.com/payment/capture-paypal-order http://localhost:4500/payment/capture-paypal-order
-        return fetch("https://ecommerce-ns6o.onrender.com/payment/capture-paypal-order", {
+        return fetch("http://localhost:4500/payment/capture-paypal-order", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

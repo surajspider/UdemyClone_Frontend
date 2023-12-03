@@ -6,7 +6,7 @@ export const storeData = createContext();
 function DataStore({ children }) {
     const [data, setData] = useState([]);
     const fetchfun = async () => {
-        const res = await fetch("https://udemyclone-backend.onrender.com/data/fetchalldata");   //http://localhost:4500/data/fetchalldata  https://udemyclone-backend.onrender.com/data/fetchalldata
+        const res = await fetch("http://localhost:4500/data/fetchalldata");   //http://localhost:4500/data/fetchalldata  https://udemyclone-backend.onrender.com/data/fetchalldata
         const user = await res.json();
         setData(user);
     }

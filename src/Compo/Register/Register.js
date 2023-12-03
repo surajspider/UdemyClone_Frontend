@@ -26,7 +26,7 @@ function Register() {
         }
         else {
             console.log(data);
-            axios.post("https://udemyclone-backend.onrender.com/api/register", data)  //https://udemyclone-backend.onrender.com/api/register
+            axios.post("http://localhost:4500/api/register", data)  //https://udemyclone-backend.onrender.com/api/register http://localhost:4500/api/register
                 .then((res) => {
                     console.log(res.data);
                     alert(res.data.msg);

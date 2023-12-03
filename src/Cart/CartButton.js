@@ -2,14 +2,27 @@ import React from 'react'
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
 import { addtocart } from './Redux/CartSlice';
+import axios from 'axios';
 
 function CartButton({ item }) {
     const navi = useNavigate();
     const dispatch = useDispatch();
+    const token = localStorage.getItem("token");
     const addtocartfun = () => {
         console.log(item);
-        dispatch(addtocart(item));
-        navi("/cart");
+        if (token) {
+            axios.get("http://localhost:4500/api/auth", { headers: { "authorization": `Bearer ${token}` } })
+                .then((res) => {
+                    console.log(res.data);
+                    console.log("item:", item);
+                    dispatch(addtocart(item));
+                })
+                .catch(err => console.log(err))
+        }
+        else {
+            alert("Please Login to add the item into cart!");
+            navi("/login");
+        }
     }
     return (
         <div>

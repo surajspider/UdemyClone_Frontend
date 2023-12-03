@@ -23,7 +23,7 @@ function NavbarCompo() {
     };
     const handleSearch = async () => {
         try {
-            const response = await axios.get(`http://localhost:4500/data/search?searchText=${searchText}`);
+            const response = await axios.get(`http://localhost:4500/data/search?searchText=${searchText}`); //https://udemyclone-backend.onrender.com/data/search?searchText=${searchText} http://localhost:4500/data/search?searchText=${searchText}
             const searchResult = response.data;
             console.log(response.data);
             console.log(searchResult.length);
