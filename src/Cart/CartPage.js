@@ -86,17 +86,21 @@ function CartPage() {
                         </div>
                     </div>
                 ) : (
-                    <div className='noitemscart_div'>
-                        <div className='noitemsimage'>
-                            <img src='https://s.udemycdn.com/browse_components/flyout/empty-shopping-cart-v2.jpg' alt='not found' className='imgfil' />
+                    <div>
+                        <div className='noitemscart_div'>
+                            <div className='noitemsimage'>
+                                <img src='https://s.udemycdn.com/browse_components/flyout/empty-shopping-cart-v2.jpg' alt='not found' className='imgfil' />
+                            </div>
+                            <p>Your Cart is empty. Keep shopping to find a course!</p>
+                            <button className='keepshopping' onClick={navigate}>Keep shopping</button>
                         </div>
-                        <p>Your Cart is empty. Keep shopping to find a course!</p>
-                        <button className='keepshopping' onClick={navigate}>Keep shopping</button>
                     </div>
                 )}
 
             </div>
-            <Footer />
+            <div className='cartfooter'>
+                <Footer />
+            </div>
         </div>
     )
 }

@@ -501,14 +501,13 @@ function NavbarCompo() {
                     <input className='searchbar' type='text' placeholder='Search for anything' value={searchText} onChange={handleInput}></input>
                 </div>
                 {isLoggedIn ? "" : (
-                    <div className='navbar_cat'>
+                    <div className='navbar_cat udemybustab'>
                         <h4 className='navbar_mainfont'>Udemy Business</h4>
                     </div>
                 )}
                 <div className='navbar_cat'>
                     <h4 className='navbar_mainfont'>Teach on Udemy</h4>
                 </div>
-
                 {isLoggedIn ? (
                     <div className='navbar_cat'>
                         <NavLink to="/mylearn" style={{ textDecoration: "none", color: "black" }}>

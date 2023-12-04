@@ -14,7 +14,7 @@ function CategoriesPage() {
     console.log(datas);
     const devcatname = ["web development", "data science", "mobile development", "programming language"];
     const buscatname = ["entrepreneurship", "communication", "management", "sales"];
-    const poptopics = ["Python", "Data Science", "React JS", "Java", "c#(Programming Language)", "Web Development", "Javascript", "Unreal Engine", "Machine Learning", "Deep Learning"]
+    const poptopics = ["Python", "Data Science", "React JS", "Java", "c#", "Web Development", "Javascript", "Unreal Engine", "Machine Learning", "Deep Learning"]
     const name = useParams().name;
     console.log(name);
     let subcats = [];
@@ -199,7 +199,7 @@ function CategoriesPage() {
                                     <div className='stars_div'>
                                         <input name='star' type='radio'></input>
                                         <RatingStars rating={4.5} />
-                                        <p style={{ margin: 0 }}>&nbsp;4.5 & up (10,000)</p>
+                                        <p className="starratingnum" style={{ margin: 0 }}>&nbsp;4.5 & up (10,000)</p>
                                     </div>
                                     <div className='stars_div'>
                                         <input name='star' type='radio'></input>
