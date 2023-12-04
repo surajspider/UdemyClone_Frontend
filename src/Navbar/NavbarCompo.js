@@ -554,7 +554,7 @@ function NavbarCompo() {
                                 <h5>Sign up</h5>
                             </NavLink>
                         </div>
-                        <div className='logbut_nav'>
+                        <div className='globe_nav'>
                             <MdLanguage size={"1.5em"} style={{ margin: "5px 0px 0px 0px" }} />
                         </div>
                     </div>
