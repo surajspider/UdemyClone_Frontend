@@ -11,7 +11,7 @@ function CartButton({ item }) {
     const addtocartfun = () => {
         console.log(item);
         if (token) {
-            axios.get("http://localhost:4500/api/auth", { headers: { "authorization": `Bearer ${token}` } })
+            axios.get("https://udemyclone-backend.onrender.com/api/auth", { headers: { "authorization": `Bearer ${token}` } }) //https://udemyclone-backend.onrender.com/api/auth http://localhost:4500/api/auth
                 .then((res) => {
                     console.log(res.data);
                     console.log("item:", item);

@@ -26,14 +26,16 @@ function Register() {
         }
         else {
             console.log(data);
-            axios.post("http://localhost:4500/api/register", data)  //https://udemyclone-backend.onrender.com/api/register http://localhost:4500/api/register
+            axios.post("https://udemyclone-backend.onrender.com/api/register", data)  //https://udemyclone-backend.onrender.com/api/register http://localhost:4500/api/register
                 .then((res) => {
                     console.log(res.data);
                     alert(res.data.msg);
-                    if (res.data.msg === "User Registered Successfully!") {
-                        localStorage.setItem("token", res.data.token);
-                        navi("/");
-                    }
+                    // if (res.data.msg === "User Registered Successfully!") {
+                    //     localStorage.setItem("token", res.data.token);
+                    //     navi("/");
+                    // }
+                    alert("Please login!");
+                    navi("/login");
                 })
                 .catch(err => console.log(err));
             setData({ uname: "", email: "", pass: "" });

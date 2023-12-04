@@ -1,14 +1,23 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { IoIosSearch } from "react-icons/io";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { MdLanguage } from "react-icons/md";
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
+import { resetCart } from '../Cart/Redux/CartSlice';
+import { FaRegHeart } from "react-icons/fa";
 
 function NavbarCompo() {
     const [showsubroute, setsubroute] = useState(false);
+    const [showlogroute, setlogroute] = useState(false);
     const [showsubsub, setsubsub] = useState(null);
     const [searchText, setSearchText] = useState("");
+    const [isLoggedIn, setlogged] = useState(false);
+    const [userinfo, setUserInfo] = useState(null);
+    const token = localStorage.getItem("token");
+    const dispatch = useDispatch();
+    const itemsInCart = useSelector((state) => state.cart.itemsInCart);
     const navi = useNavigate();
     const handlesubsub = (catname) => {
         setsubroute(true);
@@ -23,7 +32,7 @@ function NavbarCompo() {
     };
     const handleSearch = async () => {
         try {
-            const response = await axios.get(`http://localhost:4500/data/search?searchText=${searchText}`); //https://udemyclone-backend.onrender.com/data/search?searchText=${searchText} http://localhost:4500/data/search?searchText=${searchText}
+            const response = await axios.get(`https://udemyclone-backend.onrender.com/data/search?searchText=${searchText}`); //https://udemyclone-backend.onrender.com/data/search?searchText=${searchText} http://localhost:4500/data/search?searchText=${searchText}
             const searchResult = response.data;
             console.log(response.data);
             console.log(searchResult.length);
@@ -41,6 +50,30 @@ function NavbarCompo() {
             console.log("Error searching:", err);
         }
     }
+    const logoutfun = () => {
+        localStorage.removeItem("token");
+        localStorage.removeItem("userID");
+        setlogged(false);
+        setUserInfo(null);
+        dispatch(resetCart());
+        navi("/");
+    }
+    useEffect(() => {
+        if (token) {
+            axios.get("https://udemyclone-backend.onrender.com/api/auth", { headers: { "authorization": `Bearer ${token}` } }) //https://udemyclone-backend.onrender.com/api/auth http://localhost:4500/api/auth
+                .then((res) => {
+                    console.log(res.data.msg);
+                    console.log(res.data.userdata);
+                    if (res.data.msg === "User Authorized") {
+                        setlogged(true);
+                        localStorage.setItem("userID", res.data.userdata.email);
+                        setUserInfo(res.data.userdata);
+                        setlogroute(false);
+                    }
+                })
+                .catch(err => console.log(err))
+        }
+    }, [token])
     // const [loginout, setloginout] = useState(false);
     const categoryname = ["development", "business", "Finance & Accounting", "IT & Software", "Office Productivity", "Personal Development", "Teaching & Academics", "Music", "Health & Fitness", "Photography & Video", "Lifestyle", "Marketing", "Design"];
     const devcatname = ["web development", "data science", "mobile development", "programming language", "entrepreneurship", "communication", "management", "sales",
@@ -467,32 +500,67 @@ function NavbarCompo() {
                     <button><IoIosSearch size={"1.5em"} onClick={handleSearch} /></button>
                     <input className='searchbar' type='text' placeholder='Search for anything' value={searchText} onChange={handleInput}></input>
                 </div>
-                <div className='navbar_cat'>
-                    <h4 className='navbar_mainfont'>Udemy Business</h4>
-                </div>
+                {isLoggedIn ? "" : (
+                    <div className='navbar_cat'>
+                        <h4 className='navbar_mainfont'>Udemy Business</h4>
+                    </div>
+                )}
                 <div className='navbar_cat'>
                     <h4 className='navbar_mainfont'>Teach on Udemy</h4>
                 </div>
-                <div className='navbar_cat'>
-                    <NavLink to={"/cart"}>
+
+                {isLoggedIn ? (
+                    <div className='navbar_cat'>
+                        <NavLink to="/mylearn" style={{ textDecoration: "none", color: "black" }}>
+                            <h4 className='navbar_mainfont'>My Learning</h4>
+                        </NavLink>
+                    </div>
+                ) : ""}
+                {isLoggedIn ? (
+                    <div className='heartlogo'>
+                        <FaRegHeart size={"1.3em"} />
+                    </div>
+                ) : ""}
+                <div className='navbar_cat cartlogo'>
+                    <NavLink to={"/cart"} style={{ textDecoration: "none", color: "black" }}>
+                        {itemsInCart.length > 0 ? (
+                            <div className='itemscartcount_round'>
+                                {itemsInCart.length}
+                            </div>
+                        ) : ""}
                         <MdOutlineShoppingCart size={"1.5em"} style={{ margin: "15px 0px 0px 0px" }} />
                     </NavLink>
                 </div>
-                <div className='butdiv_nav'>
-                    <div className='logbut_nav'>
-                        <NavLink style={{ color: "black", textDecoration: "none" }} to="/login">
-                            <h5>Log in</h5>
-                        </NavLink>
+                {isLoggedIn ? (
+                    <div className='usernav' onMouseEnter={() => setlogroute(true)} onMouseLeave={() => setlogroute(false)}>
+                        <div className='profilediv'>
+                            <span className='spanclass'>{userinfo.uname.charAt(0)}</span>
+                        </div>
+                        {showlogroute && (
+                            <div className='logroute'>
+                                <h5>{userinfo.uname}</h5><hr />
+                                <h5 onClick={logoutfun}>Logout</h5>
+                            </div>
+                        )}
                     </div>
-                    <div className='logbut_nav signupbut'>
-                        <NavLink style={{ color: "white", textDecoration: "none" }} to="/register">
-                            <h5>Sign up</h5>
-                        </NavLink>
+                ) : (
+                    <div className='butdiv_nav'>
+                        <div className='logbut_nav'>
+                            <NavLink style={{ color: "black", textDecoration: "none" }} to="/login">
+                                <h5>Log in</h5>
+                            </NavLink>
+                        </div>
+                        <div className='logbut_nav signupbut'>
+                            <NavLink style={{ color: "white", textDecoration: "none" }} to="/register">
+                                <h5>Sign up</h5>
+                            </NavLink>
+                        </div>
+                        <div className='logbut_nav'>
+                            <MdLanguage size={"1.5em"} style={{ margin: "5px 0px 0px 0px" }} />
+                        </div>
                     </div>
-                    <div className='logbut_nav'>
-                        <MdLanguage size={"1.5em"} style={{ margin: "5px 0px 0px 0px" }} />
-                    </div>
-                </div>
+                )}
+
             </div>
         </div >
     )

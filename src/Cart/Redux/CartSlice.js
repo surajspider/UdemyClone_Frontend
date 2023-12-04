@@ -15,7 +15,7 @@ const CartSlice = createSlice({
             // console.log("cart item", action.payload);
             const existingItemIndex = state.itemsInCart.findIndex(item => item.id === action.payload.id);
             if (existingItemIndex !== -1) {
-                state.itemsInCart[existingItemIndex].quantity += 1;
+                alert("Item: " + action.payload.courseName + " is already added to the cart!");
             }
             else {
                 state.itemsInCart.push({ ...action.payload, quantity: 1 });
@@ -24,23 +24,6 @@ const CartSlice = createSlice({
             state.totalAmount = calculateTotalAmount(state.itemsInCart);
             console.log(Array.from(state.itemsInCart));
             console.log(state.totalAmount);
-        },
-        increment: (state, action) => {
-            const existingItemIndex = state.itemsInCart.findIndex(item => item.id === action.payload.id);
-            if (existingItemIndex !== -1) {
-                state.itemsInCart[existingItemIndex].quantity += 1;
-                state.totalAmount = calculateTotalAmount(state.itemsInCart);
-            }
-        },
-        decrement: (state, action) => {
-            const existingItemIndex = state.itemsInCart.findIndex(item => item.id === action.payload.id);
-            if (existingItemIndex !== -1) {
-                state.itemsInCart[existingItemIndex].quantity -= 1;
-                if (state.itemsInCart[existingItemIndex].quantity < 1) {
-                    state.itemsInCart.splice(existingItemIndex, 1);
-                }
-                state.totalAmount = calculateTotalAmount(state.itemsInCart);
-            }
         },
         deleteItem: (state, action) => {
             const existingItemIndex = state.itemsInCart.findIndex(item => item.id === action.payload.id);
@@ -56,5 +39,5 @@ const CartSlice = createSlice({
     }
 })
 
-export const { addtocart, increment, decrement, deleteItem, resetCart } = CartSlice.actions;
+export const { addtocart, deleteItem, resetCart } = CartSlice.actions;
 export default CartSlice.reducer;

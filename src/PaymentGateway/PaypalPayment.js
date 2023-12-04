@@ -1,16 +1,29 @@
 import { PayPalButtons } from '@paypal/react-paypal-js';
 import { useDispatch } from 'react-redux';
 import { resetCart } from '../Cart/Redux/CartSlice';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 // import React, { useEffect, useState } from 'react'
 
 function PaypalPayment({ cartData, totalAmount }) {
     console.log("cartData:", cartData)
     console.log("total:", totalAmount)
+    const navi = useNavigate();
     // const [totalAmount, setTotalAmount] = useState(0);
+    const storeCourseData = (cartData) => {
+        const userData = localStorage.getItem("userID");
+        axios.post("https://udemyclone-backend.onrender.com/api/coursesbought", {  //https://udemyclone-backend.onrender.com/api/coursesbought http://localhost:4500/api/coursesbought
+            cartData, userData
+        })
+            .then((res) => {
+                console.log(res.data)
+            })
+            .catch((err) => console.log(err))
+    }
     const dispatch = useDispatch();
     const createOrder = () => {
         // Order is created on the server and the order id is returned   https://ecommerce-ns6o.onrender.com/payment/create-paypal-order http://localhost:4500/payment/create-paypal-order
-        return fetch("http://localhost:4500/payment/create-paypal-order", {
+        return fetch("https://ecommerce-ns6o.onrender.com/payment/create-paypal-order", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -37,7 +50,7 @@ function PaypalPayment({ cartData, totalAmount }) {
     };
     const onApprove = (data) => {
         // Order is captured on the server and the response is returned to the browser https://ecommerce-ns6o.onrender.com/payment/capture-paypal-order http://localhost:4500/payment/capture-paypal-order
-        return fetch("http://localhost:4500/payment/capture-paypal-order", {
+        return fetch("https://ecommerce-ns6o.onrender.com/payment/capture-paypal-order", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -54,8 +67,10 @@ function PaypalPayment({ cartData, totalAmount }) {
                 console.log(data)
                 console.log(data.status);
                 if (data.status === "COMPLETED") {
+                    storeCourseData(cartData);
                     alert("Order Placed Successfully!\nAmount paid completed!")
                     dispatch(resetCart());
+                    navi("/mylearn");
                 }
             });
     };

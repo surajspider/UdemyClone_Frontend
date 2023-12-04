@@ -25,7 +25,7 @@ function Login() {
         }
         else {
             console.log(data);
-            axios.post("http://localhost:4500/api/login", data) //https://udemyclone-backend.onrender.com/api/login http://localhost:4500/api/login
+            axios.post("https://udemyclone-backend.onrender.com/api/login", data) //https://udemyclone-backend.onrender.com/api/login http://localhost:4500/api/login
                 .then((res) => {
                     alert(res.data.msg);
                     if (res.data.msg === "User Logged in Successfully!") {

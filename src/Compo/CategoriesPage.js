@@ -79,6 +79,7 @@ function CategoriesPage() {
     const filtereddatas = datas.filter(item => item.category === name || item.subcategory === name);
     console.log(filtereddatas);
     const [isHovered, setIsHovered] = useState(null);
+    const [ishoveredtwo, setIsHoveredtwo] = useState(null);
 
     const handleContainerHover = (index) => {
         setIsHovered(index);
@@ -87,6 +88,12 @@ function CategoriesPage() {
     const handleContainerLeave = () => {
         setIsHovered(null);
     };
+    const handleContainerHovertwo = (index) => {
+        setIsHoveredtwo(index);
+    }
+    const handleContainerLeavetwo = () => {
+        setIsHoveredtwo(null);
+    }
     return (
         <div>
             <div className='navsub'>
@@ -116,13 +123,6 @@ function CategoriesPage() {
                                 <div className='mostpop_img'>
                                     <img src={item.image} alt='not found' className='imgfil' />
                                 </div>
-                                <div className='topicitem'>
-                                    <h5 className='topicfont'>{item.courseName}</h5>
-                                    <p className='pmargin'>{item.creator}</p>
-                                    <div className='rating_div'>{item.rating}<div><RatingStars rating={item.rating} /></div>(3256)</div>
-                                    <h4 style={{ marginTop: "1%" }}>₹{item.offerPrice}</h4>
-                                    {bestsel && <h4 className='bestsel'>Bestseller</h4>}
-                                </div>
                                 {isHovered === index && (
                                     <div className='arrow-container'>
                                         <div className="arrow"></div>
@@ -143,6 +143,14 @@ function CategoriesPage() {
                                         </div>
                                     </div>
                                 )}
+                                <div className='topicitem'>
+                                    <h5 className='topicfont'>{item.courseName}</h5>
+                                    <p className='pmargin'>{item.creator}</p>
+                                    <div className='rating_div'>{item.rating}<div><RatingStars rating={item.rating} /></div>(3256)</div>
+                                    <h4 style={{ marginTop: "1%" }}>₹{item.offerPrice}</h4>
+                                    {bestsel && <h4 className='bestsel'>Bestseller</h4>}
+                                </div>
+
                             </div>
                         )
                     })}
@@ -152,7 +160,7 @@ function CategoriesPage() {
                     <div className='popmain_div'>
                         {poptopics.map((item, index) => {
                             return (
-                                <p className='poptopics'>{item}</p>
+                                <p key={index} className='poptopics'>{item}</p>
                             )
                         })}
                     </div>
@@ -267,10 +275,30 @@ function CategoriesPage() {
                             {filtereddatas.slice(0, 8).map((item, index) => {
                                 return (
                                     <div key={index}>
-                                        <div className='item_maindiv'>
+                                        <div className={`item_maindiv ${ishoveredtwo === index ? 'hovered' : ''}`} onMouseEnter={() => handleContainerHovertwo(index)} onMouseLeave={handleContainerLeavetwo}>
                                             <div className='item_imgdiv'>
                                                 <img src={item.image} alt='not found' className='imgfil' />
                                             </div>
+                                            {ishoveredtwo === index && (
+                                                <div className='arrow-containertwo'>
+                                                    <div className="arrow"></div>
+                                                    <div className='additional-content'>
+                                                        <h4 style={{ margin: 0 }}>{item.courseName}</h4>
+                                                        <h5>What you'll learn</h5>
+                                                        <ul className='pointlist'>
+                                                            <li>{item.point1}</li>
+                                                            <li>{item.point2}</li>
+                                                            <li>{item.point3}</li>
+                                                        </ul>
+                                                        <div className='buttondiv'>
+                                                            <CartButton item={item} />
+                                                            <div className='heartbutton_img'>
+                                                                <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf9nKX4mmWawwlgehpJGHNxT5OcxKVlRsIzA&usqp=CAU' alt='not found' className='imgfil' />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            )}
                                             <div className='item_contentdiv'>
                                                 <h4 className='padd'>{item.courseName}</h4>
                                                 <p className='padd'>{item.creator}</p>
@@ -280,6 +308,7 @@ function CategoriesPage() {
                                             <div className='item_pricediv'>
                                                 <h4>₹{item.offerPrice}</h4>
                                             </div>
+
                                         </div>
                                         <hr />
                                     </div>

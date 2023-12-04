@@ -24,11 +24,11 @@
 }
 
 .searchbar_div input {
-    padding: 1.5%;
+    padding: 1%;
     box-sizing: border-box;
     border: none;
     outline: none;
-    width: 90%;
+    width: 80%;
     /* padding: 1%; */
 }
 
@@ -46,6 +46,69 @@
 .navbar_mainfont {
     font-weight: 400;
     font-size: 0.9em;
+}
+
+.heartlogo {
+    /* border: 2px solid red; */
+    align-content: center;
+    padding-top: 1.6%;
+}
+
+.cartlogo {
+    position: relative;
+    /* border: 2px solid red; */
+    width: 3%;
+}
+
+.itemscartcount_round {
+    border-radius: 50%;
+    background-color: blueviolet;
+    color: white;
+    position: absolute;
+    width: 55%;
+    height: 3vh;
+    font-size: small;
+    font-weight: bold;
+    right: 0;
+}
+
+.usernav {
+    margin-right: 3%;
+    width: 3%;
+    margin-top: 1%;
+    cursor: pointer;
+}
+
+.profilediv {
+    border-radius: 50%;
+    box-sizing: border-box;
+    /* border: 2px solid red; */
+    height: 6vh;
+    background-color: #333;
+}
+
+.logroute {
+    position: absolute;
+    width: 7%;
+    background-color: white;
+    border: 2px solid black;
+    top: 9.5%;
+    right: 2%;
+    z-index: 10;
+}
+
+.logroute h5 {
+    margin: 20px;
+}
+
+.spanclass {
+    display: inline-block;
+    margin-top: 20%;
+    font-size: medium;
+    font-weight: bold;
+    color: white;
+    text-transform: capitalize;
+    /* border: 2px solid red; */
 }
 
 .navbar_cat {
@@ -710,6 +773,7 @@
 
 .item_maindiv {
     display: flex;
+    position: relative;
     /* border: 2px solid brown; */
     height: 25vh;
     margin-bottom: 2%;
@@ -744,11 +808,33 @@
     cursor: pointer;
 }
 
+.allcourses_maindiv {
+    position: relative;
+}
+
 .arrow-container {
     position: absolute;
     /* bottom: 70%; */
-    left: 30%;
-    top: 47%;
+    left: 20%;
+    top: 30%;
+    /* left: 100%; */
+    /* right: -50%; */
+    width: 40vh;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    z-index: 5;
+}
+
+.arrow-containertwo {
+    position: absolute;
+    /* top: 20%; */
+    bottom: 10%;
+    left: 40%;
+    /* top: 20%; */
     /* left: 100%; */
     /* right: -50%; */
     width: 40vh;
@@ -910,6 +996,35 @@
 .search_maindiv {
     /* border: 2px solid green; */
     width: 85%;
+    margin: auto;
+    text-align: left;
+}
+
+/* My learning Page */
+.header_mylearning {
+    width: 100%;
+    background-color: #333;
+    color: white;
+    font-size: larger;
+    padding: 2% 0% 0% 0%;
+    font-weight: bolder;
+    text-align: left;
+}
+
+.my_learntopic {
+    width: 80%;
+    margin: auto;
+}
+
+.noitems_parent_mylearndiv {
+    /* border: 2px solid red; */
+    width: 80%;
+    margin: auto;
+}
+
+.courses_list {
+    /* border: 2px solid red; */
+    width: 80%;
     margin: auto;
     text-align: left;
 }

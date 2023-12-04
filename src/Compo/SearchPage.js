@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom'
 import { IoMdArrowDropdown } from "react-icons/io";
 import RatingStars from './RatingStars';
 import Footer from './Footer';
+import CartButton from '../Cart/CartButton';
 
 function SearchPage() {
     const [starview, setstarview] = useState(true);
@@ -11,6 +12,13 @@ function SearchPage() {
     console.log("values:", location.searchResult);
     const searchResults = location.searchResult;
     const searchText = location.searchText;
+    const [ishoveredtwo, setIsHoveredtwo] = useState(null);
+    const handleContainerHovertwo = (index) => {
+        setIsHoveredtwo(index);
+    }
+    const handleContainerLeavetwo = () => {
+        setIsHoveredtwo(null);
+    }
     return (
         <div>
             <div className='search_maindiv'>
@@ -103,10 +111,30 @@ function SearchPage() {
                             {searchResults.map((item, index) => {
                                 return (
                                     <div key={index}>
-                                        <div className='item_maindiv'>
+                                        <div className={`item_maindiv ${ishoveredtwo === index ? 'hovered' : ''}`} onMouseEnter={() => handleContainerHovertwo(index)} onMouseLeave={handleContainerLeavetwo}>
                                             <div className='item_imgdiv'>
                                                 <img src={item.image} alt='not found' className='imgfil' />
                                             </div>
+                                            {ishoveredtwo === index && (
+                                                <div className='arrow-containertwo'>
+                                                    <div className="arrow"></div>
+                                                    <div className='additional-content'>
+                                                        <h4 style={{ margin: 0 }}>{item.courseName}</h4>
+                                                        <h5>What you'll learn</h5>
+                                                        <ul className='pointlist'>
+                                                            <li>{item.point1}</li>
+                                                            <li>{item.point2}</li>
+                                                            <li>{item.point3}</li>
+                                                        </ul>
+                                                        <div className='buttondiv'>
+                                                            <CartButton item={item} />
+                                                            <div className='heartbutton_img'>
+                                                                <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf9nKX4mmWawwlgehpJGHNxT5OcxKVlRsIzA&usqp=CAU' alt='not found' className='imgfil' />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            )}
                                             <div className='item_contentdiv'>
                                                 <h4 className='padd'>{item.courseName}</h4>
                                                 <p className='padd'>{item.creator}</p>
