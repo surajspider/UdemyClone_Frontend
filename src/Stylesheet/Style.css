@@ -152,7 +152,10 @@
 
 .logbut_nav h5 {
     /* border: 2px solid black; */
-    margin-top: 13%;
+    /* margin-top: 13%; */
+    /* margin-left: 4%; */
+    margin: auto;
+    padding-top: 10%;
     width: fit-content;
 }
 
