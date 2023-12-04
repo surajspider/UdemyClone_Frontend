@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { storeData } from '../DataStore/DataStore'
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import RatingStars from './RatingStars';
 import { FaStar } from 'react-icons/fa';
 import { IoMdArrowDropdown } from "react-icons/io";
@@ -122,19 +122,19 @@ function CategoriesPage() {
             <div className='navsub'>
                 {displaySubnav ? (
                     <>
-                        <h5>{mainCategory}</h5>
+                        <NavLink className="textdeconone" to={`/category/${mainCategory}`}><h5>{mainCategory}</h5></NavLink>
                         <div className='arrowimg'>
                             <img src='https://s.udemycdn.com/browse_components/link-bar/large-next.svg' alt='not found' className='imgfil' />
                         </div>
                         {mainCategorySubcats.map((item, index) => {
                             return (
-                                <h5 key={index} className='h5normal'>{item}</h5>
+                                <NavLink className="textdeconone" to={`/category/${item}`}><h5 key={index} className='h5normal'>{item}</h5></NavLink>
                             )
                         })}
                     </>
                 ) : (
                     <>
-                        <h5>{name}</h5>
+                        <NavLink className="textdeconone" to={`/category/${name}`}><h5>{name}</h5></NavLink>
                         <div className='arrowimg'>
                             <img src='https://s.udemycdn.com/browse_components/link-bar/large-next.svg' alt='not found' className='imgfil' />
                         </div>
@@ -143,7 +143,7 @@ function CategoriesPage() {
 
                 {subcats.map((item, index) => {
                     return (
-                        <h5 key={index} className='h5normal'>{item}</h5>
+                        <NavLink className="textdeconone" to={`/category/${item}`}><h5 key={index} className='h5normal'>{item}</h5></NavLink>
                     )
                 })}
             </div>

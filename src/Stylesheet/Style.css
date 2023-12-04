@@ -598,6 +598,11 @@
     background-color: white;
 }
 
+.textdeconone {
+    text-decoration: none;
+    color: black;
+}
+
 .arrowimg {
     height: 7vh;
     /* border: 1px solid black; */
