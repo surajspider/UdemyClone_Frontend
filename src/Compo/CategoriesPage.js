@@ -12,12 +12,36 @@ function CategoriesPage() {
     const [videoview, setvideo] = useState(true);
     const [datas] = useContext(storeData);
     console.log(datas);
-    const devcatname = ["web development", "data science", "mobile development", "programming language"];
-    const buscatname = ["entrepreneurship", "communication", "management", "sales"];
     const poptopics = ["Python", "Data Science", "React JS", "Java", "c#", "Web Development", "Javascript", "Unreal Engine", "Machine Learning", "Deep Learning"]
     const name = useParams().name;
     console.log(name);
-    let subcats = [];
+    const categoriesMap = {
+        development: ["web development", "data science", "mobile development", "programming language"],
+        business: ["entrepreneurship", "communication", "management", "sales"],
+        "Finance & Accounting": ["Accounting & Bookkeeping", "Compliance", "Cryptocurrency & Blockchain", "Economics", "Finance"],
+        "IT & Software": ["IT Certifications", "Network & Security", "Hardware", "Operating Systems & Servers", "Other IT & Software"],
+        "Office Productivity": ["Microsoft", "Apple", "Google", "SAP", "Oracle"],
+        "Personal Development": ["Personal Transformation", "Personal Productivity", "Leadership", "Career Development", "Parenting & Relationships"],
+        "Teaching & Academics": ["Engineering", "Humanities", "Math", "Science", "Online Education"],
+        Music: ["Instruments", "Music Production", "Music Fundamentals", "Vocal", "Music Techniques"],
+        "Health & Fitness": ["Fitness", "General Health", "Sports", "Nutrition & Diet", "Yoga"],
+        "Photography & Video": ["Digital Photography", "Photography", "Portrait Photography", "Photography Tools", "Commercial Photography"],
+        Lifestyle: ["Arts & Crafts", "Beauty & Makeup", "Esoteric Practices", "Food & Beverage", "Gaming"],
+        Marketing: ["Digital Marketing", "Search Engine Optimization", "Social Media Marketing", "Branding", "Marketing Fundamentals"],
+        Design: ["Web Design", "Graphic Design & Illustration", "Design Tools", "User Experience Design", "Game Design"],
+    };
+    const subcats = categoriesMap[name] || [];
+    let mainCategory;
+    let mainCategorySubcats = [];
+    if (!subcats.includes(name)) {
+        Object.entries(categoriesMap).forEach(([category, subcategories]) => {
+            if (subcategories.includes(name)) {
+                mainCategory = category;
+                mainCategorySubcats = subcategories;
+            }
+        });
+    }
+    const displaySubnav = mainCategory && mainCategorySubcats.length > 0;
     const instructors = [
         {
             name: "Dr. Angela Yu",
@@ -52,12 +76,11 @@ function CategoriesPage() {
             img: "https://img-c.udemycdn.com/user/75x75/9685726_67e7_4.jpg"
         }
     ]
-
-    if (name === "development") {
-        subcats = devcatname;
-    } else if (name === "business") {
-        subcats = buscatname;
-    }
+    // if (name === "development") {
+    //     subcats = devcatname;
+    // } else if (name === "business") {
+    //     subcats = buscatname;
+    // }
     console.log(subcats);
     let subcat = "";
     let dummycat = datas.find((item) => {
@@ -97,10 +120,27 @@ function CategoriesPage() {
     return (
         <div>
             <div className='navsub'>
-                <h5>{name}</h5>
-                <div className='arrowimg'>
-                    <img src='https://s.udemycdn.com/browse_components/link-bar/large-next.svg' alt='not found' className='imgfil' />
-                </div>
+                {displaySubnav ? (
+                    <>
+                        <h5>{mainCategory}</h5>
+                        <div className='arrowimg'>
+                            <img src='https://s.udemycdn.com/browse_components/link-bar/large-next.svg' alt='not found' className='imgfil' />
+                        </div>
+                        {mainCategorySubcats.map((item, index) => {
+                            return (
+                                <h5 key={index} className='h5normal'>{item}</h5>
+                            )
+                        })}
+                    </>
+                ) : (
+                    <>
+                        <h5>{name}</h5>
+                        <div className='arrowimg'>
+                            <img src='https://s.udemycdn.com/browse_components/link-bar/large-next.svg' alt='not found' className='imgfil' />
+                        </div>
+                    </>
+                )}
+
                 {subcats.map((item, index) => {
                     return (
                         <h5 key={index} className='h5normal'>{item}</h5>
