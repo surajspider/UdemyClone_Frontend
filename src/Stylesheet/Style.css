@@ -5,6 +5,10 @@
     box-shadow: 0px 0.5px 10px;
 }
 
+.mobileview {
+    display: none;
+}
+
 .udemylogo_div {
     /* border: 2px solid red; */
     width: 6%;
@@ -603,6 +607,10 @@
     color: black;
 }
 
+.textdeconone:hover {
+    color: blueviolet;
+}
+
 .arrowimg {
     height: 7vh;
     /* border: 1px solid black; */
@@ -1050,6 +1058,50 @@
 
 /* Media Query for tablet */
 @media only screen and (min-width:600px) and (max-width:975px) {
+    .butdiv_nav {
+        /* border: 2px solid black; */
+        width: 20%;
+        display: flex;
+        margin-right: 1%;
+        margin-top: 1%;
+        /* height: 3vh; */
+        justify-content: space-between;
+        /* padding: 10px 20px 10px 0px; */
+    }
+
+    .globe_nav {
+        border: 1px solid black;
+        height: 3vh;
+        margin-top: 9%;
+    }
+
+    .logbut_nav {
+        border: 1px solid black;
+        height: 3vh;
+        /* width: 25%; */
+        margin: 9% 1% 0% 0%;
+        text-align: center;
+        width: 45%;
+        padding-left: 2%;
+        /* padding: 2px 10px 2px 10px; */
+        cursor: pointer;
+        /* box-sizing: border-box; */
+    }
+
+    .signupbut {
+        background-color: black;
+        color: white;
+    }
+
+    .logbut_nav h5 {
+        /* border: 2px solid black; */
+        /* margin-top: 13%; */
+        /* margin-left: 4%; */
+        margin: auto;
+        padding-top: 10%;
+        width: fit-content;
+    }
+
     .image-carousel {
         height: 25vh;
     }
@@ -1378,7 +1430,7 @@
         width: 12%;
         background-color: white;
         border: 2px solid black;
-        top: 9.5%;
+        top: 5%;
         right: 3%;
         z-index: 10;
     }
@@ -1396,11 +1448,135 @@
         height: 80vh;
         box-sizing: border-box;
     }
+
+    .register_div {
+        width: 60%;
+    }
+
+    .teachme {
+        display: none;
+    }
+
 }
 
 /* Media Query for Mobile */
 @media only screen and (max-width:599px) {
+
     .navbar {
+        display: flex;
+        /* border: 2px solid black; */
+        box-shadow: 0px 0.5px 10px;
+    }
+
+    .mobileview {
+        display: block;
+    }
+
+    .navbar_cat {
+        display: none;
+    }
+
+    .searchbar_div {
+        display: none;
+    }
+
+    .butdiv_nav {
+        display: none;
+    }
+
+    .menuicon_div {
+        /* border: 2px solid black; */
+        height: fit-content;
+        margin-top: 3%;
+    }
+
+    .flexyicons {
+        display: flex;
+        /* border: 2px solid red; */
+        margin-right: 7%;
+    }
+
+    .navicons {
+        /* border: 1px solid black; */
+        height: fit-content;
+        margin-right: 8%;
+        margin-top: 50%;
+    }
+
+    .udemylogo_div {
+        /* border: 2px solid red; */
+        width: 20%;
+        margin-left: 5%;
+    }
+
+    .menupage {
+        position: absolute;
+        width: 70%;
+        height: 80vh;
+        z-index: 20;
+        background-color: #333;
+        color: white;
+        text-align: left;
+        padding-left: 5%;
+        padding-right: 5%;
+        box-sizing: border-box;
+    }
+
+    .menupage h4 {
+        margin-bottom: 0;
+        margin-top: 3%;
+    }
+
+    .closebutton_div {
+        position: absolute;
+        left: 100%;
+        bottom: 85%;
+    }
+
+    .navsubmenu {
+        /* border: 2px solid red; */
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 2%;
+    }
+
+    .gt {
+        /* border: 2px solid red; */
+        height: fit-content;
+    }
+
+    .navlinkmenu {
+        text-decoration: none;
+        color: white;
+    }
+
+    .menuitemsgt {
+        /* border: 1px solid red; */
+        /* width: 90%; */
+        margin: 0;
+        display: inline-block;
+        text-transform: capitalize;
+    }
+
+    .submenupage {
+        position: absolute;
+        width: 90%;
+        height: 80vh;
+        z-index: 20;
+        /* border: 2px solid red; */
+        top: 0;
+        background-color: #333;
+    }
+
+    .submenupage h4 {
+        text-transform: capitalize;
+    }
+
+    .usernav {
+        display: none;
+    }
+
+    .heartlogo {
         display: none;
     }
 
@@ -1412,7 +1588,7 @@
         width: 100%;
         background-color: rgb(249, 247, 250);
         margin: auto;
-        height: 25vh;
+        height: fit-content;
     }
 
     .mainbrandsimg_div {
@@ -1426,9 +1602,655 @@
 
     .brandsimg_div {
         /* border: 2px solid black; */
-        width: 20%;
-        margin-bottom: 2%;
+        width: 40%;
+        margin-bottom: 5%;
         margin-right: 1%;
         height: 6vh;
     }
+
+    .learners_div {
+        background-color: rgb(249, 247, 250);
+        width: 100%;
+        padding-top: 3%;
+        padding-bottom: 4%;
+    }
+
+    .learnh2 {
+        text-align: left;
+        margin-left: 6%;
+        margin-bottom: 2%;
+    }
+
+    .mainlearnercard_div {
+        /* border: 2px solid black; */
+        margin: auto;
+        width: 88%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .learnercard_div {
+        border: 1px solid rgb(178, 175, 175);
+        width: 100%;
+        background-color: white;
+        padding: 25px;
+        text-align: left;
+        margin-bottom: 2%;
+    }
+
+    .imgdouble {
+        width: 5%;
+    }
+
+    .learnertext {
+        font-size: 1.05em;
+    }
+
+    .learnertext span {
+        font-weight: bolder;
+    }
+
+    .profile_learner {
+        display: flex;
+        margin-bottom: 8%;
+    }
+
+    .h4profilename {
+        /* border: 2px solid black; */
+        margin: 0% 0% 0% 2%;
+    }
+
+    .profileround {
+        border-radius: 50%;
+        background-color: black;
+        width: 10%;
+        height: 4.5vh;
+    }
+
+    .profileround h5 {
+        margin: 0px 0px 0px 5px;
+        padding-top: 20%;
+        color: white;
+    }
+
+    .flexy {
+        display: flex;
+    }
+
+    .playspan {
+        /* border: 2px solid black; */
+        margin: 0;
+        font-size: 1em;
+        font-weight: bold;
+        color: rgb(22, 22, 210);
+    }
+
+    .becomeinstruc_div {
+        width: 88%;
+        /* border: 2px solid black; */
+        margin: auto;
+        position: relative;
+    }
+
+    .becomeinstruc_imgdiv {
+        width: 100%;
+        /* border: 2px solid black; */
+        margin: 0;
+        /* margin: 2% 0% 0% 17%; */
+    }
+
+    .becomeinstruc_contentdiv {
+        /* border: 2px solid black; */
+        /* margin-right: 5%; */
+        text-align: center;
+        width: 100%;
+        position: static;
+        top: 15%;
+        left: 55%;
+    }
+
+    .becomeinstruc_contentdiv p {
+        font-size: large;
+        font-weight: 400;
+    }
+
+    .becomeinstruc_contentdiv button {
+        padding: 4%;
+        font-size: 1em;
+        font-weight: bold;
+        color: white;
+        background-color: black;
+    }
+
+    /* footer */
+    .footer {
+        background-color: rgb(27, 26, 26);
+        height: fit-content;
+        position: relative;
+        padding-top: 2%;
+        padding-bottom: 5%;
+    }
+
+    .footer_Upperdiv {
+        width: 50%;
+        /* border: 2px solid white; */
+        margin-left: 3%;
+        color: white;
+        display: flex;
+        flex-wrap: wrap;
+        text-align: left;
+        justify-content: space-between;
+    }
+
+    .footer_Upperdiv p {
+        /* margin: 0; */
+        font-size: 0.9em;
+        margin-bottom: 0;
+    }
+
+    .footerbutton {
+        position: absolute;
+        top: 10%;
+        right: 3%;
+        border: 1px solid white;
+        padding: 10px;
+    }
+
+    .langbut {
+        background-color: inherit;
+        outline: none;
+        /* border: 2px solid white; */
+        color: white;
+        font-size: large;
+        margin-left: 5px;
+        padding-right: 10px;
+    }
+
+    .footerlogo {
+        display: block;
+        justify-content: space-between;
+        /* border: 2px solid white; */
+        margin-top: 2%;
+        width: 90%;
+        margin-left: 2%;
+    }
+
+    .copyrights {
+        color: white;
+        font-size: small;
+        text-align: left;
+        margin-left: 3%;
+    }
+
+    /* Login Page */
+    .register_div {
+        /* border: 2px solid black; */
+        width: 80%;
+        margin: auto;
+        text-align: left;
+        padding-top: 2%;
+        padding-bottom: 2%;
+    }
+
+    .form-group input {
+        padding: 5%;
+        margin-bottom: 2%;
+        width: 85%;
+    }
+
+    .form-check {
+        /* border: 2px solid black; */
+        width: fit-content;
+        display: inline;
+        margin-right: 2%;
+    }
+
+    .check {
+        text-align: left;
+        margin-left: 2%;
+        height: 20px;
+        width: 20px;
+        accent-color: black;
+    }
+
+    .form-checknotice {
+        display: inline-block;
+        width: 80%;
+        font-size: medium;
+    }
+
+    .reg_submit {
+        width: 95%;
+        padding: 4%;
+        font-size: large;
+        font-weight: bold;
+        background-color: blueviolet;
+        border: none;
+        color: white;
+        cursor: pointer;
+    }
+
+    .fontsi {
+        font-size: small;
+    }
+
+    .navdeco {
+        text-align: center;
+        font-size: 0.95em;
+        color: black;
+        text-decoration: none;
+        font-weight: 500;
+        margin-bottom: 0;
+
+    }
+
+    .loginspan {
+        color: blueviolet;
+        text-decoration: underline;
+        font-size: 1.1em;
+        font-weight: bold;
+    }
+
+    /* Login Page */
+    .signupdiff_div {
+        border: 1px solid black;
+        display: flex;
+        padding: 0;
+        width: 95%;
+        margin-bottom: 2%;
+        /* height: 6vh; */
+    }
+
+    .signuph4 {
+        padding-top: 3%;
+        margin: 0;
+        margin-left: 3%;
+        /* border: 1px solid green; */
+    }
+
+    .logosignup {
+        /* border: 2px solid red; */
+        height: fit-content;
+        margin-left: 2%;
+    }
+
+    .logogoogle {
+        /* border: 2px solid brown; */
+        margin-top: 20%;
+    }
+
+    .form-group input::placeholder {
+        font-weight: bold;
+        font-size: 1em;
+        color: black;
+    }
+
+    .loginorg {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        color: blueviolet;
+        font-weight: bold;
+        font-size: 0.9em;
+        text-decoration: underline;
+        margin-top: 1%;
+    }
+
+    /* categories Page */
+    .navsub {
+        display: none;
+    }
+
+    .topic_categoryPage {
+        text-transform: capitalize;
+        margin-bottom: 4%;
+        font-size: x-large;
+    }
+
+    .mostpop {
+        margin-bottom: 1%;
+    }
+
+    .line {
+        width: 20%;
+    }
+
+    .linehr {
+        height: 0.1vh;
+        background-color: black;
+    }
+
+    .mostpop_div {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 3%;
+        /* border: 2px solid red; */
+    }
+
+    .mostitem_div {
+        /* border: 2px solid black; */
+        margin-right: 1%;
+        height: fit-content;
+        width: 90%;
+        position: relative;
+    }
+
+    .topicitem {
+        margin: 2%;
+    }
+
+    .topicfont {
+        margin: 0;
+    }
+
+    .pmargin {
+        margin: 5px 0px 0px 0px;
+        font-size: small;
+        font-weight: 500;
+        color: #ccc;
+    }
+
+    .rating_div {
+        display: flex;
+        margin: 1%;
+    }
+
+    .bestsel {
+        padding: 2%;
+        background-color: rgb(225, 225, 59);
+        width: fit-content;
+    }
+
+    .popmain_div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        /* border: 2px solid black; */
+        margin-bottom: 3%;
+    }
+
+    .poptopics {
+        border: 1px solid black;
+        padding: 1.5%;
+        width: 30%;
+        text-align: center;
+        font-size: 0.9em;
+        font-weight: bold;
+    }
+
+    .popinstruc_maindiv {
+        /* border: 1px solid black; */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 5%;
+    }
+
+    .popinstruc_main {
+        display: flex;
+        /* border: 1px solid black; */
+        width: 100%;
+        padding-bottom: 1%;
+        margin-bottom: 2%;
+    }
+
+    .imginstruc_div {
+        /* border: 1px solid black; */
+        /* border-radius: 50%; */
+        width: 30%;
+        height: 10vh;
+        text-align: center;
+        margin-top: 3%;
+    }
+
+    .immgfil {
+        border-radius: 50%;
+    }
+
+    .instruc_content {
+        width: 65%;
+        /* border: 1px solid red; */
+    }
+
+    .allcourses_maindiv {
+        /* border: 2px solid black; */
+        display: flex;
+    }
+
+    .leftcontainer {
+        display: none;
+    }
+
+    .rightcontainer {
+        width: 100%;
+        /* border: 2px solid green; */
+    }
+
+    .item_maindiv {
+        display: flex;
+        position: relative;
+        /* border: 2px solid brown; */
+        height: fit-content;
+        margin-bottom: 2%;
+    }
+
+    .item_imgdiv {
+        border: 1px solid black;
+        width: 35%;
+        height: 15vh;
+    }
+
+    .item_contentdiv {
+        /* border: 2px solid black; */
+        width: 58%;
+        margin-left: 2%;
+        height: fit-content;
+    }
+
+    .padd {
+        margin: 0;
+    }
+
+    /* arrow */
+    .container-row {
+        display: flex;
+    }
+
+    .container {
+        position: relative;
+        padding: 20px;
+        margin: 10px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+    }
+
+    .allcourses_maindiv {
+        position: relative;
+    }
+
+    .arrow-container {
+        position: absolute;
+        /* bottom: 70%; */
+        left: 10%;
+        top: 30%;
+        /* left: 100%; */
+        /* right: -50%; */
+        width: 40vh;
+        padding: 15px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        z-index: 5;
+    }
+
+    .arrow-containertwo {
+        position: absolute;
+        /* top: 20%; */
+        bottom: 10%;
+        left: 0%;
+        /* top: 20%; */
+        /* left: 100%; */
+        /* right: -50%; */
+        width: 40vh;
+        padding: 15px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        z-index: 5;
+    }
+
+    .arrow {
+        position: absolute;
+        top: -2%;
+        left: 45%;
+        transform: translateX(-50%);
+        border: solid;
+        border-width: 10px 10px 0px 10px;
+        border-color: transparent whitesmoke transparent transparent;
+    }
+
+    /* .additional-content {
+     margin-top: 10px; 
+} */
+
+    .container:hover {
+        background-color: #f0f0f0;
+    }
+
+    .container.hovered {
+        z-index: 1;
+    }
+
+    .container.hovered .arrow-container {
+        display: block;
+    }
+
+    .pointlist {
+        padding-inline-start: 8%;
+    }
+
+    .buttondiv {
+        display: flex;
+        justify-content: space-between;
+        /* border: 2px solid black; */
+    }
+
+    .addtocart {
+        width: 215px;
+        padding: 4%;
+        background-color: blueviolet;
+        color: white;
+        font-size: medium;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+    }
+
+    .heartbutton_img {
+        width: 13%;
+        height: 5vh;
+    }
+
+    /* cart page */
+    .cartmain_div {
+        width: 80%;
+        /* border: 2px solid black; */
+        margin: auto;
+    }
+
+    .noitemscart_div {
+        border: 1px solid rgb(228, 224, 224);
+        margin-bottom: 3%;
+    }
+
+    .noitemsimage {
+        /* border: 2px solid red; */
+        width: 80%;
+        margin: auto;
+    }
+
+    .keepshopping {
+        padding: 5%;
+        font-size: medium;
+        font-weight: 700;
+        color: white;
+        background-color: blueviolet;
+        border: none;
+        margin-bottom: 2%;
+    }
+
+    .cartparent_div {
+        display: flex;
+        flex-wrap: wrap;
+        /* border: 2px solid black; */
+        justify-content: space-between;
+        margin-bottom: 5%;
+    }
+
+    .cartitems_div {
+        width: 100%;
+        /* border: 2px solid green; */
+
+    }
+
+    .cartitem_imgdiv {
+        /* border: 2px solid red; */
+        width: 100%;
+        margin: auto;
+        height: 20vh;
+    }
+
+    .eachcartitem {
+        display: flex;
+        flex-wrap: wrap;
+        /* border: 2px solid red; */
+        justify-content: space-around;
+        /* margin-bottom: 3%; */
+    }
+
+    .cartitem_contentdiv {
+        /* border: 2px solid black; */
+        width: 80%;
+        margin: auto;
+        text-align: left;
+    }
+
+    .totaldiv {
+        width: 80%;
+        margin: auto;
+        /* border: 2px solid red; */
+        text-align: center;
+    }
+
+    .checkout_but {
+        width: 100%;
+        padding: 5%;
+        font-size: medium;
+        font-weight: 900;
+        background-color: blueviolet;
+        border: none;
+        color: white;
+        cursor: pointer;
+        margin-bottom: 2%;
+    }
+
+    .coupontext {
+        width: 65%;
+        padding: 1.5%;
+    }
+
+    .couponapply {
+        width: 29%;
+        padding: 1.5%;
+        color: white;
+        background-color: blueviolet;
+        font-size: medium;
+        font-weight: 700;
+        border: none;
+    }
+
 }
