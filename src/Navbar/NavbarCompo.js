@@ -108,6 +108,7 @@ function NavbarCompo() {
                             <div>
                                 <h4>Hello, {userinfo.uname}</h4>
                                 <h4 onClick={logoutfun}>Logout</h4>
+                                <NavLink to={"/mylearn"} className="navlinkmenu"><h4>My Learning</h4></NavLink>
                             </div>
                         ) : (
                             <div>
