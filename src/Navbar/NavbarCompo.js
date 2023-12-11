@@ -19,6 +19,7 @@ function NavbarCompo() {
     const [searchText, setSearchText] = useState("");
     const [isLoggedIn, setlogged] = useState(false);
     const [userinfo, setUserInfo] = useState(null);
+    const [searchmobileb, setSearchBut] = useState(false);
     const token = localStorage.getItem("token");
     const dispatch = useDispatch();
     const itemsInCart = useSelector((state) => state.cart.itemsInCart);
@@ -46,6 +47,9 @@ function NavbarCompo() {
             const searchResult = response.data;
             console.log(response.data);
             console.log(searchResult.length);
+            if (searchmobileb === true) {
+                setSearchBut(false);
+            }
             if (searchResult.length === 0) {
                 alert("Results not found!");
                 setSearchText("");
@@ -67,6 +71,9 @@ function NavbarCompo() {
         setUserInfo(null);
         dispatch(resetCart());
         navi("/");
+    }
+    const searchmobilebut = () => {
+        setSearchBut(true);
     }
     useEffect(() => {
         if (token) {
@@ -99,9 +106,17 @@ function NavbarCompo() {
         //  onClick = {() => setMobileMenuOpen(!isMobileMenuOpen)}
         <div>
             <div className='navbar'>
-                <div className='mobileview menuicon_div' onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}>
-                    <IoMenu size={"2.5em"} />
-                </div>
+                {!searchmobileb && (
+                    <div className='mobileview menuicon_div' onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}>
+                        <IoMenu size={"2.5em"} />
+                    </div>
+                )}
+                {searchmobileb && (
+                    <div className='mobileview searchmobilebar'>
+                        <button><IoIosSearch size={"1.5em"} onClick={handleSearch} /></button>
+                        <input className='searchbar' type='text' placeholder='Search for anything' value={searchText} onChange={handleInput}></input>
+                    </div>
+                )}
                 {isMobileMenuOpen && (
                     <div className={`mobileview menupage`}>
                         {isLoggedIn ? (
@@ -659,21 +674,32 @@ function NavbarCompo() {
                         </div>
                     </div>
                 )}
-                <div className='udemylogo_div'>
-                    <NavLink to="/">
-                        <img src='https://www.udemy.com/staticx/udemy/images/v7/logo-udemy.svg' alt='not found' />
-                    </NavLink>
-                </div>
-                <div className='mobileview flexyicons'>
-                    {/* <div className='navicons'>
-                        <IoIosSearch size={"2em"} />
-                    </div> */}
-                    <div className='navicons'>
-                        <NavLink className="textdeconone" to={"/cart"}>
-                            <MdOutlineShoppingCart size={"2em"} />
+                {!searchmobileb && (
+                    <div className='udemylogo_div'>
+                        <NavLink to="/">
+                            <img src='https://www.udemy.com/staticx/udemy/images/v7/logo-udemy.svg' alt='not found' />
                         </NavLink>
                     </div>
-                </div>
+                )}
+                {!searchmobileb && (
+                    <div className='mobileview flexyicons'>
+                        {/* <div className='navicons'>
+                        <IoIosSearch size={"2em"} />
+                    </div> */}
+                        <div className='navicons'>
+                            <div>
+                                <NavLink className="textdeconone" to={"/mobsearch"}>
+                                    <IoIosSearch size={"1.5em"} onClick={searchmobilebut} />
+                                </NavLink>
+                            </div>
+                            <div>
+                                <NavLink className="textdeconone" to={"/cart"}>
+                                    <MdOutlineShoppingCart size={"1.5em"} />
+                                </NavLink>
+                            </div>
+                        </div>
+                    </div>
+                )}
                 <div onMouseEnter={() => { setsubroute(true) }} onMouseLeave={() => { setsubroute(false) }} className='navbar_cat'>
                     <h4 className='navbar_mainfont'>Categories</h4>
                     {showsubroute && (
@@ -1169,7 +1195,7 @@ function NavbarCompo() {
                                 </NavLink>
                             </div>
                             <div className='globe_nav'>
-                                <MdLanguage size={"1.5em"} style={{ margin: "5px 0px 0px 0px" }} />
+                                <MdLanguage size={"1.5em"} className='globeicon' />
                             </div>
                         </div>
                     )
