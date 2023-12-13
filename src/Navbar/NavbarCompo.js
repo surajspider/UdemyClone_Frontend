@@ -689,12 +689,12 @@ function NavbarCompo() {
                         <div className='navicons'>
                             <div>
                                 <NavLink className="textdeconone" to={"/mobsearch"}>
-                                    <IoIosSearch size={"1.5em"} onClick={searchmobilebut} />
+                                    <IoIosSearch className='iosearchsize' size={"1.5em"} onClick={searchmobilebut} />
                                 </NavLink>
                             </div>
                             <div>
                                 <NavLink className="textdeconone" to={"/cart"}>
-                                    <MdOutlineShoppingCart size={"1.5em"} />
+                                    <MdOutlineShoppingCart className='cartsize' size={"1.5em"} />
                                 </NavLink>
                             </div>
                         </div>
